@@ -87,7 +87,8 @@
           </div>
           <div>
             <input type="radio" id="Western Europe" name="regions" value="Western Europe" onchange="displayCharts()">
-            <label onClick="updateCharts('Western Europe')">Western Europe</label>
+            <label onClick="updateC
+            harts('Western Europe')">Western Europe</label>
           </div>
         </fieldset>
       </div>
@@ -103,20 +104,24 @@
       <span class="close">&times;</span>
       <p>
 
-      <h4>What does the chart represent?</h4>
+      <h4>What do the charts represent?</h4>
       <ul>
         <li>The bar chart shows the relative ordering/ranking based on happiness scores of over 150 countries from 2015 to 2019</li>
         <li>The pie chart shows the aggregated distribution of the contribution of factors involved in computing the happiness scores for the selected region.</li>
+        <li>The scatter chart picks two of the contributing factors: health and social/family support and represents the relationship between them as a scatter plot.</li>
+        <li>The table lists the countries with highest scores based upon the region selection in a given year.
+      </ul>
+      <h4> How to effectively use the visualization layout?</h4>
+      <ul>
         <li>Countries have been categorized into various geographical regions</li>
-        <li>Filters can be used to view the charts for only the countries in a specific region or all regions.</li>
-        <li>Filters also update the list of the countries with highest happiness scores.</li>
+        <li>Regions filter can be used to view the charts for only the countries in a specific region or all regions.</li>
+        <li>Filter also updates the list of the countries with highest happiness scores based upon selection.</li>
         <li>Hovering over any bar in the bar chart representing a country provides more details regarding factors contributing to the given score.</li>
         <li>Annotations on top of bars indicate the happiest countries in each region in the selection.</li>
-        <li>The scatter chart represents a scatterplot between health and social/family support for over 150 countries from 2015 to 2019.</li>
         <li>Hovering over the scatter points shows more details about each plot point.</li>
-        <li>Additionally, filters can be used to see the trends from 2015 to 2019.</li>
-        <li>The chart shows that from 2015 to 2019, the health and social support have increased overall.</li>
-        <li>Countries in Western Europe, Eastern Asia and North America have had the highest health and social support scores consistently.</li>
+        <li>Navigation buttons at the top left and right can be used to see the trends from 2015 to 2019.</li>
+        <li>Did you observe that from 2015 to 2019, the health and social support have increased overall?</li>
+        <li>Also, countries in Western Europe, Eastern Asia and North America have had the highest health and social support scores consistently.</li>
       </ul>
       <h4>What do the factors (like Economy, Generosity, etc.) describe?</h4>
       <ul>

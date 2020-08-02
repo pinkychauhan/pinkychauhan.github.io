@@ -222,6 +222,7 @@ function displayBarChartAndAnnotations(transition) {
     .on("mousemove", function(d, i) {
       if (d3.select(this).attr("class") === 'normal displayChart' || d3.select(this).attr("class") === 'high displayChart') {
         d3.select(this).style("opacity", 1);
+        d3.select(this).style("stroke-width", 3);
         tooltip
           .style("opacity", 1)
           .style("left", (d3.event.pageX) + "px")
@@ -235,9 +236,11 @@ function displayBarChartAndAnnotations(transition) {
     })
     .on("mouseleave", function(d, i) {
       if (d3.select(this).attr("class") === 'normal displayChart') {
-        d3.select(this).style("opacity", 0.8)
+        d3.select(this).style("opacity", 0.8);
+        d3.select(this).style("stroke-width", 1);
       } else if (d3.select(this).attr("class") === 'high displayChart') {
-        d3.select(this).style("opacity", 1)
+        d3.select(this).style("opacity", 1);
+        d3.select(this).style("stroke-width", 2);
       }
       tooltip.style("opacity", 0)
         .html("");
@@ -486,6 +489,7 @@ function displayScatterChart(transition) {
       if (isDataPointWithinSelection(d)) {
         d3.select(this).style("opacity", 1);
         d3.select(this).style("stroke-width", 2);
+        d3.select(this).attr("r", 8);
         tooltip
           .style("opacity", 1)
           .style("left", (d3.event.pageX + 4) + "px")
@@ -499,6 +503,7 @@ function displayScatterChart(transition) {
       if (d3.select(this).attr("class") === 'normal displayPoint') {
         d3.select(this).style("opacity", 0.8);
       }
+      d3.select(this).attr("r", 8);
       tooltip.style("opacity", 0)
         .style("left", "0px")
         .style("top", "0px")
