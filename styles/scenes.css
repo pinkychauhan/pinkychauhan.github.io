@@ -96,6 +96,11 @@ button:hover {
   background-color: lightgreen;
 }
 
+label:hover, input[type="radio"]:hover {
+  cursor: pointer;
+  background-color: lightgreen;
+}
+
 .context {
   width: 100%;
   height: fit-content;

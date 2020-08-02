@@ -36,6 +36,13 @@ async function init(year) {
 
 }
 
+function updateCharts(region) {
+  if (!document.getElementById(region).checked) {
+    document.getElementById(region).checked = true;
+    displayCharts(false);
+  }
+}
+
 function displayCharts(transition) {
   constructNavigation();
   computeValues();
@@ -331,7 +338,7 @@ function displayTopCountries() {
     row.append("td").html(topCountriesRank[i]);
     row.append("td").html(topCountriesScore[i]);
   }
-  
+
 
 }
 
@@ -478,7 +485,7 @@ function displayScatterChart(transition) {
         .style("top", "0px")
         .html("");
     })
-    .transition().duration(1000)
+    .transition().duration(500)
     .attr("cx", function(d, i) {
       return scaleX(d.Health);
     })
