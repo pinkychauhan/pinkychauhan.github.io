@@ -204,14 +204,14 @@ function displayBarChartAndAnnotations(transition) {
     })
     .attr("class", function(d, i) {
       if (isDataPointWithinSelection(d)) {
-        return "displayChart"
+        return "normal displayChart"
       } else {
-        return "notdisplayChart";
+        return "low notdisplayChart";
       }
     })
     .style("opacity", function(d, i) {
       if (isDataPointWithinSelection(d)) {
-        return 1;
+        return 0.8;
       } else {
         return 0.2;
       }
@@ -220,7 +220,8 @@ function displayBarChartAndAnnotations(transition) {
       return d.Country;
     })
     .on("mousemove", function(d, i) {
-      if (d3.select(this).attr("class") === 'displayChart') {
+      if (d3.select(this).attr("class") === 'normal displayChart' || d3.select(this).attr("class") === 'high displayChart') {
+        d3.select(this).style("opacity", 1);
         tooltip
           .style("opacity", 1)
           .style("left", (d3.event.pageX) + "px")
@@ -233,6 +234,11 @@ function displayBarChartAndAnnotations(transition) {
       }
     })
     .on("mouseleave", function(d, i) {
+      if (d3.select(this).attr("class") === 'normal displayChart') {
+        d3.select(this).style("opacity", 0.8)
+      } else if (d3.select(this).attr("class") === 'high displayChart') {
+        d3.select(this).style("opacity", 1)
+      }
       tooltip.style("opacity", 0)
         .html("");
     })
@@ -254,8 +260,6 @@ function displayBarChartAndAnnotations(transition) {
   d3.select(".barchart")
     .append("g").attr("id", "bottomAxis").attr("transform", "translate(" + margin + "," + (height + margin) + ")")
     .call(d3.axisBottom(scaleX));
-
-
 
 }
 
@@ -319,7 +323,9 @@ function displayAnnotations(scaleX, scaleY, scaleColor, height) {
       }
       return result;
     })
-    .attr("stroke-width", 3)
+    .style("stroke-width", 2)
+    .style("opacity", "1")
+    .attr("class", "high displayChart");
 
 }
 
@@ -454,9 +460,16 @@ function displayScatterChart(transition) {
     .attr("r", circleRadius)
     .style("opacity", function(d, i) {
       if (isDataPointWithinSelection(d)) {
-        return 1;
+        return 0.8;
       } else {
         return 0.2;
+      }
+    })
+    .attr("class", function(d, i) {
+      if (isDataPointWithinSelection(d)) {
+        return "normal displayPoint";
+      } else {
+        return "low notDisplayPoint";
       }
     })
     .attr("stroke", function(d, i) {
@@ -471,6 +484,8 @@ function displayScatterChart(transition) {
     })
     .on("mouseover", function(d, i) {
       if (isDataPointWithinSelection(d)) {
+        d3.select(this).style("opacity", 1);
+        d3.select(this).style("stroke-width", 2);
         tooltip
           .style("opacity", 1)
           .style("left", (d3.event.pageX + 4) + "px")
@@ -480,6 +495,10 @@ function displayScatterChart(transition) {
       }
     })
     .on("mouseout", function(d, i) {
+      d3.select(this).style("stroke-width", 1);
+      if (d3.select(this).attr("class") === 'normal displayPoint') {
+        d3.select(this).style("opacity", 0.8);
+      }
       tooltip.style("opacity", 0)
         .style("left", "0px")
         .style("top", "0px")

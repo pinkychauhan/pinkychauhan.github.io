@@ -95,10 +95,14 @@ button {
 button:hover {
   background-color: lightgreen;
 }
+.clickable:hover {
+    font-size: larger;
+}
 
 label:hover, input[type="radio"]:hover {
   cursor: pointer;
   background-color: lightgreen;
+  font-size: larger;
 }
 
 .context {

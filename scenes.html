@@ -11,12 +11,12 @@
 <body onload="init(2015)">
   <div class="content" style="width:100%;">
     <div class="navigation">
-      <button id="prev"></button>
-      <button id="next"></button>
-      <center><button id="current" style="background-color: lightgreen; cursor: default;"></button>
-      <button id="aboutViz">Click here for more details</button></center>
-
-
+      <button class="clickable" id="prev"></button>
+      <button class="clickable" id="next"></button>
+      <center>
+        <button id="current" style="background-color: lightgreen; cursor: default;"></button>
+        <button class="clickable" id="aboutViz">Click here for more details</button>
+      </center>
     </div>
     <div class="charts">
       <div class="bar">
@@ -95,9 +95,6 @@
 
     <div class="annotations"></div>
     <div id="tooltip"></div>
-
-
-
   </div>
 
   <div id="aboutVizModal" class="modal">
