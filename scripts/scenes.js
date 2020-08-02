@@ -503,7 +503,7 @@ function displayScatterChart(transition) {
       if (d3.select(this).attr("class") === 'normal displayPoint') {
         d3.select(this).style("opacity", 0.8);
       }
-      d3.select(this).attr("r", 8);
+      d3.select(this).attr("r", 6);
       tooltip.style("opacity", 0)
         .style("left", "0px")
         .style("top", "0px")
