@@ -298,7 +298,7 @@ function displayAnnotations(scaleX, scaleY, scaleColor, height) {
     .enter()
     .append("text")
     .text(function(d, i) {
-      return selectedRegionsWithCountryIdentified[i] + " (" + d + ")";
+      return selectedRegionsWithCountryIdentified[i] + " (" + d + ") Rank: " + selectedTopMostCountriesRank[i];
     })
     .attr("x", function(d, i) {
       return scaleX(selectedTopMostCountriesRank[i])
@@ -509,7 +509,7 @@ function displayScatterChart(transition) {
         .style("top", "0px")
         .html("");
     })
-    .transition().duration(500)
+    .transition().duration(1000)
     .attr("cx", function(d, i) {
       return scaleX(d.Health);
     })
